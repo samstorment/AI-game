@@ -68,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,6 +85,31 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="POCSO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\woodBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\e1.jpg" />
+    <Content Include="Resources\e2.jpg" />
+    <Content Include="Resources\e3.jpg" />
+    <Content Include="Resources\e4.jpg" />
+    <Content Include="Resources\e5.jpg" />
+    <Content Include="Resources\p1.jpg" />
+    <Content Include="Resources\p2.jpg" />
+    <Content Include="Resources\p3.jpg" />
+    <Content Include="Resources\p4.jpg" />
+    <Content Include="Resources\p5.jpg" />
+    <Content Include="Resources\p6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
