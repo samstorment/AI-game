@@ -45,7 +45,7 @@
             this.player1Cup4 = new System.Windows.Forms.PictureBox();
             this.player1Cup5 = new System.Windows.Forms.PictureBox();
             this.player1Cup6 = new System.Windows.Forms.PictureBox();
-            this.player1Mancala2 = new System.Windows.Forms.PictureBox();
+            this.player2Mancala = new System.Windows.Forms.PictureBox();
             this.player2Cup6 = new System.Windows.Forms.PictureBox();
             this.player2Cup5 = new System.Windows.Forms.PictureBox();
             this.player2Cup4 = new System.Windows.Forms.PictureBox();
@@ -69,12 +69,10 @@
             this.player1MancalaCount = new System.Windows.Forms.Label();
             this.playerOneGroupBox = new System.Windows.Forms.GroupBox();
             this.p1ComputerPathLabel = new System.Windows.Forms.Label();
-            this.p1ShowConsoleCheckbox = new System.Windows.Forms.CheckBox();
             this.p1ComputerButton = new System.Windows.Forms.Button();
             this.p1HumanButton = new System.Windows.Forms.Button();
             this.player2GroupBox = new System.Windows.Forms.GroupBox();
             this.p2ComputerPathLabel = new System.Windows.Forms.Label();
-            this.p2ShowConsoleCheckbox = new System.Windows.Forms.CheckBox();
             this.p2ComputerButton = new System.Windows.Forms.Button();
             this.p2HumanButton = new System.Windows.Forms.Button();
             this.gameControlGroupBox = new System.Windows.Forms.GroupBox();
@@ -89,7 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.player1Cup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1Cup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1Cup6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player1Mancala2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2Mancala)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Cup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Cup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Cup4)).BeginInit();
@@ -263,15 +261,15 @@
             this.player1Cup6.TabStop = false;
             this.player1Cup6.Click += new System.EventHandler(this.Player1Cup6_Click);
             // 
-            // player1Mancala2
+            // player2Mancala
             // 
-            this.player1Mancala2.BackgroundImage = global::game_gui.Properties.Resources.e0;
-            this.player1Mancala2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Mancala2.Location = new System.Drawing.Point(38, 73);
-            this.player1Mancala2.Name = "player1Mancala2";
-            this.player1Mancala2.Size = new System.Drawing.Size(150, 467);
-            this.player1Mancala2.TabIndex = 9;
-            this.player1Mancala2.TabStop = false;
+            this.player2Mancala.BackgroundImage = global::game_gui.Properties.Resources.e0;
+            this.player2Mancala.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.player2Mancala.Location = new System.Drawing.Point(38, 73);
+            this.player2Mancala.Name = "player2Mancala";
+            this.player2Mancala.Size = new System.Drawing.Size(150, 467);
+            this.player2Mancala.TabIndex = 9;
+            this.player2Mancala.TabStop = false;
             // 
             // player2Cup6
             // 
@@ -505,12 +503,11 @@
             // 
             this.playerOneGroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.playerOneGroupBox.Controls.Add(this.p1ComputerPathLabel);
-            this.playerOneGroupBox.Controls.Add(this.p1ShowConsoleCheckbox);
             this.playerOneGroupBox.Controls.Add(this.p1ComputerButton);
             this.playerOneGroupBox.Controls.Add(this.p1HumanButton);
             this.playerOneGroupBox.Location = new System.Drawing.Point(26, 604);
             this.playerOneGroupBox.Name = "playerOneGroupBox";
-            this.playerOneGroupBox.Size = new System.Drawing.Size(341, 216);
+            this.playerOneGroupBox.Size = new System.Drawing.Size(341, 152);
             this.playerOneGroupBox.TabIndex = 30;
             this.playerOneGroupBox.TabStop = false;
             this.playerOneGroupBox.Text = "Player 1 : Blue";
@@ -523,17 +520,6 @@
             this.p1ComputerPathLabel.Size = new System.Drawing.Size(72, 13);
             this.p1ComputerPathLabel.TabIndex = 8;
             this.p1ComputerPathLabel.Text = "PATH LABEL";
-            // 
-            // p1ShowConsoleCheckbox
-            // 
-            this.p1ShowConsoleCheckbox.AutoSize = true;
-            this.p1ShowConsoleCheckbox.Location = new System.Drawing.Point(40, 114);
-            this.p1ShowConsoleCheckbox.Name = "p1ShowConsoleCheckbox";
-            this.p1ShowConsoleCheckbox.Size = new System.Drawing.Size(135, 17);
-            this.p1ShowConsoleCheckbox.TabIndex = 7;
-            this.p1ShowConsoleCheckbox.Text = "Show Player 1 Console";
-            this.p1ShowConsoleCheckbox.UseVisualStyleBackColor = true;
-            this.p1ShowConsoleCheckbox.CheckedChanged += new System.EventHandler(this.P1ShowConsoleCheckbox_CheckedChanged);
             // 
             // p1ComputerButton
             // 
@@ -563,12 +549,11 @@
             // 
             this.player2GroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.player2GroupBox.Controls.Add(this.p2ComputerPathLabel);
-            this.player2GroupBox.Controls.Add(this.p2ShowConsoleCheckbox);
             this.player2GroupBox.Controls.Add(this.p2ComputerButton);
             this.player2GroupBox.Controls.Add(this.p2HumanButton);
             this.player2GroupBox.Location = new System.Drawing.Point(522, 604);
             this.player2GroupBox.Name = "player2GroupBox";
-            this.player2GroupBox.Size = new System.Drawing.Size(341, 216);
+            this.player2GroupBox.Size = new System.Drawing.Size(341, 152);
             this.player2GroupBox.TabIndex = 31;
             this.player2GroupBox.TabStop = false;
             this.player2GroupBox.Text = "Player 2 : Green";
@@ -581,17 +566,6 @@
             this.p2ComputerPathLabel.Size = new System.Drawing.Size(72, 13);
             this.p2ComputerPathLabel.TabIndex = 7;
             this.p2ComputerPathLabel.Text = "PATH LABEL";
-            // 
-            // p2ShowConsoleCheckbox
-            // 
-            this.p2ShowConsoleCheckbox.AutoSize = true;
-            this.p2ShowConsoleCheckbox.Location = new System.Drawing.Point(39, 114);
-            this.p2ShowConsoleCheckbox.Name = "p2ShowConsoleCheckbox";
-            this.p2ShowConsoleCheckbox.Size = new System.Drawing.Size(135, 17);
-            this.p2ShowConsoleCheckbox.TabIndex = 6;
-            this.p2ShowConsoleCheckbox.Text = "Show Player 2 Console";
-            this.p2ShowConsoleCheckbox.UseVisualStyleBackColor = true;
-            this.p2ShowConsoleCheckbox.CheckedChanged += new System.EventHandler(this.P2ShowConsoleCheckbox_CheckedChanged);
             // 
             // p2ComputerButton
             // 
@@ -626,39 +600,41 @@
             this.gameControlGroupBox.Controls.Add(this.turnIndicatorLabel);
             this.gameControlGroupBox.Location = new System.Drawing.Point(1036, 604);
             this.gameControlGroupBox.Name = "gameControlGroupBox";
-            this.gameControlGroupBox.Size = new System.Drawing.Size(341, 216);
+            this.gameControlGroupBox.Size = new System.Drawing.Size(341, 152);
             this.gameControlGroupBox.TabIndex = 32;
             this.gameControlGroupBox.TabStop = false;
             this.gameControlGroupBox.Text = "Game Control";
             // 
             // resetGameButton
             // 
+            this.resetGameButton.BackColor = System.Drawing.Color.White;
             this.resetGameButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.resetGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.resetGameButton.Location = new System.Drawing.Point(185, 56);
+            this.resetGameButton.Location = new System.Drawing.Point(185, 28);
             this.resetGameButton.Name = "resetGameButton";
             this.resetGameButton.Size = new System.Drawing.Size(109, 40);
             this.resetGameButton.TabIndex = 3;
             this.resetGameButton.Text = "Reset Game";
-            this.resetGameButton.UseVisualStyleBackColor = true;
+            this.resetGameButton.UseVisualStyleBackColor = false;
             this.resetGameButton.Click += new System.EventHandler(this.ResetGameButton_Click);
             // 
             // startGameButton
             // 
+            this.startGameButton.BackColor = System.Drawing.Color.White;
             this.startGameButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.startGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.startGameButton.Location = new System.Drawing.Point(56, 56);
+            this.startGameButton.Location = new System.Drawing.Point(56, 28);
             this.startGameButton.Name = "startGameButton";
             this.startGameButton.Size = new System.Drawing.Size(109, 40);
             this.startGameButton.TabIndex = 2;
             this.startGameButton.Text = "Start Game";
-            this.startGameButton.UseVisualStyleBackColor = true;
+            this.startGameButton.UseVisualStyleBackColor = false;
             this.startGameButton.Click += new System.EventHandler(this.StartGameButton_Click);
             // 
             // turnIndicator
             // 
             this.turnIndicator.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.turnIndicator.Location = new System.Drawing.Point(242, 140);
+            this.turnIndicator.Location = new System.Drawing.Point(243, 74);
             this.turnIndicator.Name = "turnIndicator";
             this.turnIndicator.Size = new System.Drawing.Size(82, 66);
             this.turnIndicator.TabIndex = 1;
@@ -668,7 +644,7 @@
             // 
             this.turnIndicatorLabel.AutoSize = true;
             this.turnIndicatorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.turnIndicatorLabel.Location = new System.Drawing.Point(181, 162);
+            this.turnIndicatorLabel.Location = new System.Drawing.Point(181, 98);
             this.turnIndicatorLabel.Name = "turnIndicatorLabel";
             this.turnIndicatorLabel.Size = new System.Drawing.Size(55, 24);
             this.turnIndicatorLabel.TabIndex = 0;
@@ -678,7 +654,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1404, 832);
+            this.ClientSize = new System.Drawing.Size(1404, 769);
             this.Controls.Add(this.gameControlGroupBox);
             this.Controls.Add(this.player2GroupBox);
             this.Controls.Add(this.playerOneGroupBox);
@@ -702,7 +678,7 @@
             this.Controls.Add(this.player1Cup4);
             this.Controls.Add(this.player1Cup5);
             this.Controls.Add(this.player1Cup6);
-            this.Controls.Add(this.player1Mancala2);
+            this.Controls.Add(this.player2Mancala);
             this.Controls.Add(this.player2Cup6);
             this.Controls.Add(this.player2Cup5);
             this.Controls.Add(this.player2Cup4);
@@ -725,7 +701,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.player1Cup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1Cup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1Cup6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player1Mancala2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2Mancala)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Cup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Cup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Cup4)).EndInit();
@@ -765,7 +741,7 @@
         private System.Windows.Forms.PictureBox player2Cup4;
         private System.Windows.Forms.PictureBox player2Cup5;
         private System.Windows.Forms.PictureBox player2Cup6;
-        private System.Windows.Forms.PictureBox player1Mancala2;
+        private System.Windows.Forms.PictureBox player2Mancala;
         private System.Windows.Forms.PictureBox player1Cup1;
         private System.Windows.Forms.PictureBox player1Cup2;
         private System.Windows.Forms.PictureBox player1Cup3;
@@ -793,11 +769,9 @@
         private System.Windows.Forms.Label turnIndicatorLabel;
         private System.Windows.Forms.PictureBox turnIndicator;
         private System.Windows.Forms.Label p1ComputerPathLabel;
-        private System.Windows.Forms.CheckBox p1ShowConsoleCheckbox;
         private System.Windows.Forms.Button p1ComputerButton;
         private System.Windows.Forms.Button p1HumanButton;
         private System.Windows.Forms.Label p2ComputerPathLabel;
-        private System.Windows.Forms.CheckBox p2ShowConsoleCheckbox;
         private System.Windows.Forms.Button p2ComputerButton;
         private System.Windows.Forms.Button p2HumanButton;
         private System.Windows.Forms.Button resetGameButton;
