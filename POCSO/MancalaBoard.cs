@@ -72,17 +72,17 @@ namespace game_gui.POCSO
             {
                 if(player == 1)
                 {
-                    int total = GameBoard[0, lastPieceCupIndex] + GameBoard[0, 5 - lastPieceCupIndex];
+                    int total = GameBoard[0, lastPieceCupIndex] + GameBoard[1, 5 - lastPieceCupIndex];
                     GameBoard[0, lastPieceCupIndex] = 0;
-                    GameBoard[0, 5 - lastPieceCupIndex] = 0;
+                    GameBoard[1, 5 - lastPieceCupIndex] = 0;
                     P1Mancala += total;
                 }
                 else
                 {
-                    int total = GameBoard[1, lastPieceCupIndex] + GameBoard[1, 5 - lastPieceCupIndex];
+                    int total = GameBoard[1, lastPieceCupIndex] + GameBoard[0, 5 - lastPieceCupIndex];
                     GameBoard[1, lastPieceCupIndex] = 0;
-                    GameBoard[1, 5 - lastPieceCupIndex] = 0;
-                    P1Mancala += total;
+                    GameBoard[0, 5 - lastPieceCupIndex] = 0;
+                    P2Mancala += total;
                 }
                 return false;
             }
@@ -96,15 +96,21 @@ namespace game_gui.POCSO
             }
         }
 
-        public bool PlayerHasWon(int player)
+        public bool PlayerHasWon()
         {
-            int total = 0;
+            int total1  = 0;
             for(int i = 0; i < 6; i++)
             {
-                total += GameBoard[player - 1, i];
+                total1 += GameBoard[0, i];
             }
 
-            return total == 0;
+            int total2 = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                total2 += GameBoard[1, i];
+            }
+
+            return (total1 == 0 || total2 == 0);
         }
     }
 }

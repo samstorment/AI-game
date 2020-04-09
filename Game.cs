@@ -27,7 +27,6 @@ namespace game_gui
         // Method Params: camelCase
 
         private MancalaBoard GameBoard;
-        private bool PlayerHasWon = false;
         private string P1Type = "";
         private string P2Type = "";
         private string P1Path = "";
@@ -45,33 +44,21 @@ namespace game_gui
         // PLAYER 1 Selection ----------------------------------------------
         private void Player1Cup1_Click(object sender, EventArgs e)
         {
-            //if (Turn == 1 && P1Type.Equals("Human"))
-            //{
-            //    // Take turn
-            //    // Update Board and see if player goes again
-            //    // Check for win
-            //    // If player can go again
-            //        // Don't switch turns
-            //    // If no win, player does not go again, and p2 = comp... 
-            //        // let computer go
-            //        // Update board
-            //        // Check for win
-            //    // Else, the other player is a human and turn is over
-            //        // Switch turns
-            //}
-            //else
-            //{
-            //    InvalidSelection(1, 1);
-            //}
-            GameBoard.UpdateBoard(2, 6);
-            AIController.WriteBoardToFile(GameBoard, 1);
+            if (Turn == 1 && P1Type.Equals("Human") && GameBoard.GameBoard[0, 0] > 0)
+            {
+                Player1ButtonSelect(1, 1);
+            }
+            else
+            {
+                InvalidSelection(1, 1);
+            }
         }
 
         private void Player1Cup2_Click(object sender, EventArgs e)
         {
-            if (Turn == 1 && P1Type.Equals("Human"))
+            if (Turn == 1 && P1Type.Equals("Human") && GameBoard.GameBoard[0, 1] > 0)
             {
-
+                Player1ButtonSelect(1, 2);
             }
             else
             {
@@ -81,9 +68,9 @@ namespace game_gui
 
         private void Player1Cup3_Click(object sender, EventArgs e)
         {
-            if (Turn == 1 && P1Type.Equals("Human"))
+            if (Turn == 1 && P1Type.Equals("Human") && GameBoard.GameBoard[0, 2] > 0)
             {
-
+                Player1ButtonSelect(1, 3);
             }
             else
             {
@@ -93,9 +80,9 @@ namespace game_gui
 
         private void Player1Cup4_Click(object sender, EventArgs e)
         {
-            if (Turn == 1 && P1Type.Equals("Human"))
+            if (Turn == 1 && P1Type.Equals("Human") && GameBoard.GameBoard[0, 3] > 0)
             {
-
+                Player1ButtonSelect(1, 4);
             }
             else
             {
@@ -105,9 +92,9 @@ namespace game_gui
 
         private void Player1Cup5_Click(object sender, EventArgs e)
         {
-            if (Turn == 1 && P1Type.Equals("Human"))
+            if (Turn == 1 && P1Type.Equals("Human") && GameBoard.GameBoard[0, 4] > 0)
             {
-
+                Player1ButtonSelect(1, 5);
             }
             else
             {
@@ -117,9 +104,9 @@ namespace game_gui
 
         private void Player1Cup6_Click(object sender, EventArgs e)
         {
-            if(Turn == 1 && P1Type.Equals("Human"))
+            if(Turn == 1 && P1Type.Equals("Human") && GameBoard.GameBoard[0, 5] > 0)
             {
-
+                Player1ButtonSelect(1, 6);
             }
             else
             {
@@ -127,12 +114,85 @@ namespace game_gui
             }
         }
 
+        private void Player1ButtonSelect(int playerIndex, int cupIndex)
+        {
+            bool canGoAgain = UpdateBoard(playerIndex, cupIndex);
+            bool didWin = GameBoard.PlayerHasWon();
+            if (!canGoAgain && !didWin && P2Type.Equals("Human"))
+            {
+                Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
+                Turn = 2;
+                turnIndicator.BackColor = Color.YellowGreen; 
+            }
+            else if (!canGoAgain && !didWin && P2Type.Equals("Computer"))
+            {
+                Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
+                Turn = 0;
+                turnIndicator.BackColor = Color.YellowGreen;
+                bool compHasWon, compCanGoAgain;
+                do
+                {
+                    string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
+                    var lines = move.Split(',');
+                    int playerNum = 0;
+                    int cupNum = 0;
+                    try
+                    {
+                        playerNum = Int32.Parse(lines[0]);
+                        cupNum = Int32.Parse(lines[1]);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("\tERROR: Error Parsing move from executatable. Exiting Application....");
+                        Environment.Exit(1);
+                    }
+                    compCanGoAgain = UpdateBoard(playerNum, cupNum);
+                    compHasWon = GameBoard.PlayerHasWon();
+                    if (compCanGoAgain)
+                    {
+                        Console.WriteLine("\tPlayer gets another turn!");
+                    }
+                } while (!compHasWon && compCanGoAgain);
+
+                if (compHasWon)
+                {
+                    Console.WriteLine("Player 2 has won!");
+                    Turn = 0;
+                    string message = "Player 2 has won!";
+                    string caption = "WINNER";
+                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
+                    Turn = 1;
+                    turnIndicator.BackColor = Color.MediumTurquoise;
+                }
+            }
+            else if (didWin)
+            {
+                Console.WriteLine("Player 1 has won!");
+                Turn = 0;
+                string message = "Player 1 has won!";
+                string caption = "WINNER";
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (canGoAgain)
+            {
+                Console.WriteLine("\tPlayer gets another turn!");
+                string message = "You get another turn!";
+                string caption = "Additional Turn";
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         // PLAYER 2 Selection ----------------------------------------------
         private void Player2Cup1_Click(object sender, EventArgs e)
         {
-            if (Turn == 2 && P2Type.Equals("Human"))
+            if (Turn == 2 && P2Type.Equals("Human") && GameBoard.GameBoard[1, 0] > 0)
             {
-
+                Player2ButtonSelect(2, 1);
             }
             else
             {
@@ -142,9 +202,9 @@ namespace game_gui
 
         private void Player2Cup2_Click(object sender, EventArgs e)
         {
-            if (Turn == 2 && P2Type.Equals("Human"))
+            if (Turn == 2 && P2Type.Equals("Human") && GameBoard.GameBoard[1, 1] > 0)
             {
-
+                Player2ButtonSelect(2, 2);
             }
             else
             {
@@ -154,9 +214,9 @@ namespace game_gui
 
         private void Player2Cup3_Click(object sender, EventArgs e)
         {
-            if (Turn == 2 && P2Type.Equals("Human"))
+            if (Turn == 2 && P2Type.Equals("Human") && GameBoard.GameBoard[1, 2] > 0)
             {
-
+                Player2ButtonSelect(2, 3);
             }
             else
             {
@@ -166,9 +226,9 @@ namespace game_gui
 
         private void Player2Cup4_Click(object sender, EventArgs e)
         {
-            if (Turn == 2 && P2Type.Equals("Human"))
+            if (Turn == 2 && P2Type.Equals("Human") && GameBoard.GameBoard[1, 3] > 0)
             {
-
+                Player2ButtonSelect(2, 4);
             }
             else
             {
@@ -178,9 +238,9 @@ namespace game_gui
 
         private void Player2Cup5_Click(object sender, EventArgs e)
         {
-            if (Turn == 2 && P2Type.Equals("Human"))
+            if (Turn == 2 && P2Type.Equals("Human") && GameBoard.GameBoard[1, 4] > 0)
             {
-
+                Player2ButtonSelect(2, 5);
             }
             else
             {
@@ -190,13 +250,86 @@ namespace game_gui
 
         private void Player2Cup6_Click(object sender, EventArgs e)
         {
-            if (Turn == 2 && P2Type.Equals("Human"))
+            if (Turn == 2 && P2Type.Equals("Human") && GameBoard.GameBoard[1, 5] > 0)
             {
-
+                Player2ButtonSelect(2, 6);
             }
             else
             {
                 InvalidSelection(2, 6);
+            }
+        }
+
+        private void Player2ButtonSelect(int playerIndex, int cupIndex)
+        {
+            bool canGoAgain = UpdateBoard(playerIndex, cupIndex);
+            bool didWin = GameBoard.PlayerHasWon();
+            if (!canGoAgain && !didWin && P1Type.Equals("Human"))
+            {
+                Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
+                Turn = 1; 
+                turnIndicator.BackColor = Color.MediumTurquoise;
+            }
+            else if (!canGoAgain && !didWin && P1Type.Equals("Computer"))
+            {
+                Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
+                Turn = 0;
+                turnIndicator.BackColor = Color.MediumTurquoise;
+                bool compHasWon, compCanGoAgain;
+                do
+                {
+                    string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
+                    var lines = move.Split(',');
+                    int playerNum = 0;
+                    int cupNum = 0;
+                    try
+                    {
+                        playerNum = Int32.Parse(lines[0]);
+                        cupNum = Int32.Parse(lines[1]);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("\tERROR: Error Parsing move from executatable. Exiting Application....");
+                        Environment.Exit(1);
+                    }
+                    compCanGoAgain = UpdateBoard(playerNum, cupNum);
+                    compHasWon = GameBoard.PlayerHasWon();
+                    if (compCanGoAgain)
+                    {
+                        Console.WriteLine("\tPlayer gets another turn!");
+                    }
+                } while (!compHasWon && compCanGoAgain);
+
+                if (compHasWon)
+                {
+                    Console.WriteLine("Player 1 has won!");
+                    Turn = 0;
+                    string message = "Player 1 has won!";
+                    string caption = "WINNER";
+                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
+                    Turn = 2;
+                    turnIndicator.BackColor = Color.YellowGreen;
+                }
+            }
+            else if (didWin)
+            {
+                Console.WriteLine("Player 2 has won!");
+                Turn = 0;
+                string message = "Player 2 has won!";
+                string caption = "WINNER";
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (canGoAgain)
+            {
+                Console.WriteLine("\tPlayer gets another turn!");
+                string message = "You get another turn!";
+                string caption = "Additional Turn";
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -260,6 +393,7 @@ namespace game_gui
         // General Game Control ----------------------------------------------
         private void StartGameButton_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("----------------------------- GAME STARTED! -----------------------------");
             if(P1Type.Equals("Computer") && P2Type.Equals("Computer"))
             {
                 if(!P1Path.Contains(".exe") || !P2Path.Contains(".exe"))
@@ -267,10 +401,18 @@ namespace game_gui
                     SelectExeError();
                     return;
                 }
-
-                // Just do a while loop here since it isn't important that the GUI is active
-                    // Make a computer play method that has a while loop (while can play again)
-                // Add in delay so we can see what is happening
+                Turn = 0;
+                bool anAiHasWon;
+                do
+                {
+                    anAiHasWon = AI1Turn();
+                    // TODO: Delay here
+                    if (!anAiHasWon)
+                    {
+                        anAiHasWon = AI2Turn();
+                    }
+                    // TODO: Delay here
+                } while (!anAiHasWon);
             }
             else if (P1Type.Equals("Computer") && P2Type.Equals("Human"))
             {
@@ -279,7 +421,36 @@ namespace game_gui
                     SelectExeError();
                     return;
                 }
-                // Let computer go, then switch to human's turn
+                Console.WriteLine("\tIt is now Player 1's turn");
+                Turn = 0;
+                turnIndicator.BackColor = Color.MediumTurquoise;
+                bool compCanGoAgain;
+                do
+                {
+                    string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
+                    var lines = move.Split(',');
+                    int playerNum = 0;
+                    int cupNum = 0;
+                    try
+                    {
+                        playerNum = Int32.Parse(lines[0]);
+                        cupNum = Int32.Parse(lines[1]);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("\tERROR: Error Parsing move from executatable. Exiting Application....");
+                        Environment.Exit(1);
+                    }
+                    compCanGoAgain = UpdateBoard(playerNum, cupNum);
+                    if (compCanGoAgain)
+                    {
+                        Console.WriteLine("\tPlayer gets another turn!");
+                    }
+                } while (compCanGoAgain);
+
+                Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
+                Turn = 2;
+                turnIndicator.BackColor = Color.YellowGreen;
             }
             else if (P1Type.Equals("Human") && P2Type.Equals("Computer"))
             {
@@ -288,16 +459,18 @@ namespace game_gui
                     SelectExeError();
                     return;
                 }
-
+                Console.WriteLine("\tIt is now Player 1's turn");
             }
-            else // Both humans
+            else
             {
-                // nothing???
+                Console.WriteLine("\tIt is now Player 1's turn");
+                Turn = 1;
             }
         }
 
         private void ResetGameButton_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Resetting game board...");
             ResetBoard();
         }
 
@@ -353,21 +526,7 @@ namespace game_gui
             P2Type = "Human";
 
             // Reset GUI
-            player1Cup1Count.Text = "4";
-            player1Cup2Count.Text = "4";
-            player1Cup3Count.Text = "4";
-            player1Cup4Count.Text = "4";
-            player1Cup5Count.Text = "4";
-            player1Cup6Count.Text = "4";
-            player1MancalaCount.Text = "0";
-
-            player2Cup1Count.Text = "4";
-            player2Cup2Count.Text = "4";
-            player2Cup3Count.Text = "4";
-            player2Cup4Count.Text = "4";
-            player2Cup5Count.Text = "4";
-            player2Cup6Count.Text = "4";
-            player2MancalaCount.Text = "0";
+            UpdateGUI();
 
             Turn = 0;
             turnIndicator.BackColor = Color.MediumTurquoise;
@@ -386,10 +545,93 @@ namespace game_gui
 
         private bool UpdateBoard(int player, int cupNum)
         {
-            // update board through MancalaBoard's method (true means player goes again)
-            // Update GUI board to reflect changes
+            Console.WriteLine("\t\tPlayer has chosen cup: " + cupNum);
+            Console.WriteLine("\tUpdating board...");
+            bool result = GameBoard.UpdateBoard(player, cupNum);
+            UpdateGUI();
 
-            return false;
+            return result;
+        }
+
+        private void UpdateGUI()
+        {
+            Console.WriteLine("Updating GUI values...");
+            player1Cup1.BackgroundImage = GetImageFile(1, 1);
+            player1Cup2.BackgroundImage = GetImageFile(1, 2);
+            player1Cup3.BackgroundImage = GetImageFile(1, 3);
+            player1Cup4.BackgroundImage = GetImageFile(1, 4);
+            player1Cup5.BackgroundImage = GetImageFile(1, 5);
+            player1Cup6.BackgroundImage = GetImageFile(1, 6);
+            player1Mancala.BackgroundImage = GetImageFile(1, 7);
+            player2Cup1.BackgroundImage = GetImageFile(2, 1);
+            player2Cup2.BackgroundImage = GetImageFile(2, 2);
+            player2Cup3.BackgroundImage = GetImageFile(2, 3);
+            player2Cup4.BackgroundImage = GetImageFile(2, 4);
+            player2Cup5.BackgroundImage = GetImageFile(2, 5);
+            player2Cup6.BackgroundImage = GetImageFile(2, 6);
+            player2Mancala.BackgroundImage = GetImageFile(2, 7);
+
+            player1Cup1Count.Text = GameBoard.GameBoard[0, 0].ToString();
+            player1Cup2Count.Text = GameBoard.GameBoard[0, 1].ToString();
+            player1Cup3Count.Text = GameBoard.GameBoard[0, 2].ToString();
+            player1Cup4Count.Text = GameBoard.GameBoard[0, 3].ToString();
+            player1Cup5Count.Text = GameBoard.GameBoard[0, 4].ToString();
+            player1Cup6Count.Text = GameBoard.GameBoard[0, 5].ToString();
+            player1MancalaCount.Text = GameBoard.P1Mancala.ToString();
+
+            player2Cup1Count.Text = GameBoard.GameBoard[1, 0].ToString();
+            player2Cup2Count.Text = GameBoard.GameBoard[1, 1].ToString();
+            player2Cup3Count.Text = GameBoard.GameBoard[1, 2].ToString();
+            player2Cup4Count.Text = GameBoard.GameBoard[1, 3].ToString();
+            player2Cup5Count.Text = GameBoard.GameBoard[1, 4].ToString();
+            player2Cup6Count.Text = GameBoard.GameBoard[1, 5].ToString();
+            player2MancalaCount.Text = GameBoard.P2Mancala.ToString();
+        }
+
+        private Image GetImageFile(int player, int cup)
+        {
+            if(cup > 6)
+            {
+                int numItems = player == 1 ? GameBoard.P1Mancala : GameBoard.P2Mancala;
+                switch (numItems)
+                {
+                    case 0:
+                        return Properties.Resources.e0;
+                    case 1:
+                        return Properties.Resources.e1;
+                    case 2:
+                        return Properties.Resources.e2;
+                    case 3:
+                        return Properties.Resources.e3;
+                    case 4:
+                        return Properties.Resources.e4;
+                    case 5:
+                        return Properties.Resources.e5;
+                    default:
+                        return Properties.Resources.e6;
+                }
+            }
+            else
+            {
+                int numItems = GameBoard.GameBoard[player - 1, cup - 1];
+                switch (numItems)
+                {
+                    case 0:
+                        return Properties.Resources.p0;
+                    case 1:
+                        return Properties.Resources.p1;
+                    case 2:
+                        return Properties.Resources.p2;
+                    case 3:
+                        return Properties.Resources.p3;
+                    case 4:
+                        return Properties.Resources.p4;
+                    case 5:
+                        return Properties.Resources.p5;
+                    default:
+                        return Properties.Resources.p6;
+                }
+            }
         }
 
         private void DeselectTimings()
@@ -415,6 +657,96 @@ namespace game_gui
             string caption = "ERROR";
             MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             Console.WriteLine("ERROR: Game cannot play without an AI selected");
+        }
+
+        private bool AI1Turn()
+        {
+            Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
+            turnIndicator.BackColor = Color.MediumTurquoise;
+            bool compHasWon, compCanGoAgain;
+            do
+            {
+                string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
+                var lines = move.Split(',');
+                int playerNum = 0;
+                int cupNum = 0;
+                try
+                {
+                    playerNum = Int32.Parse(lines[0]);
+                    cupNum = Int32.Parse(lines[1]);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\tERROR: Error Parsing move from executatable. Exiting Application....");
+                    Environment.Exit(1);
+                }
+                compCanGoAgain = UpdateBoard(playerNum, cupNum);
+                compHasWon = GameBoard.PlayerHasWon();
+                if (compCanGoAgain)
+                {
+                    Console.WriteLine("\tPlayer gets another turn!");
+                }
+            } while (!compHasWon && compCanGoAgain);
+
+            if (compHasWon)
+            {
+                Console.WriteLine("Player 1 has won!");
+                string message = "Player 1 has won!";
+                string caption = "WINNER";
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
+                turnIndicator.BackColor = Color.YellowGreen;
+                return false;
+            }
+        }
+
+        private bool AI2Turn()
+        {
+            Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
+            turnIndicator.BackColor = Color.YellowGreen;
+            bool compHasWon, compCanGoAgain;
+            do
+            {
+                string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
+                var lines = move.Split(',');
+                int playerNum = 0;
+                int cupNum = 0;
+                try
+                {
+                    playerNum = Int32.Parse(lines[0]);
+                    cupNum = Int32.Parse(lines[1]);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\tERROR: Error Parsing move from executatable. Exiting Application....");
+                    Environment.Exit(1);
+                }
+                compCanGoAgain = UpdateBoard(playerNum, cupNum);
+                compHasWon = GameBoard.PlayerHasWon();
+                if (compCanGoAgain)
+                {
+                    Console.WriteLine("\tPlayer gets another turn!");
+                }
+            } while (!compHasWon && compCanGoAgain);
+
+            if (compHasWon)
+            {
+                Console.WriteLine("Player 2 has won!");
+                string message = "Player 2 has won!";
+                string caption = "WINNER";
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
+                turnIndicator.BackColor = Color.MediumTurquoise;
+                return false;
+            }
         }
     }
 }
