@@ -86,7 +86,7 @@ namespace game_gui.POCSO
                 }
                 return false;
             }
-            else if (lastPieceSideIndex == player - 1 && lastPieceCupIndex != 6) // Go again
+            else if (lastPieceSideIndex == player - 1 && lastPieceCupIndex == 6) // Go again (landed in mancala)
             {
                 return true;
             }

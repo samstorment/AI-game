@@ -111,7 +111,7 @@
             this.directionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1404, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -189,7 +189,7 @@
             this.player2Cup1Count.AutoSize = true;
             this.player2Cup1Count.BackColor = System.Drawing.Color.YellowGreen;
             this.player2Cup1Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Cup1Count.Location = new System.Drawing.Point(1112, 37);
+            this.player2Cup1Count.Location = new System.Drawing.Point(1086, 35);
             this.player2Cup1Count.Name = "player2Cup1Count";
             this.player2Cup1Count.Size = new System.Drawing.Size(20, 24);
             this.player2Cup1Count.TabIndex = 16;
@@ -199,7 +199,7 @@
             // 
             this.player1Cup1.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player1Cup1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Cup1.Location = new System.Drawing.Point(198, 396);
+            this.player1Cup1.Location = new System.Drawing.Point(172, 394);
             this.player1Cup1.Name = "player1Cup1";
             this.player1Cup1.Size = new System.Drawing.Size(157, 144);
             this.player1Cup1.TabIndex = 15;
@@ -210,7 +210,7 @@
             // 
             this.player1Cup2.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player1Cup2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Cup2.Location = new System.Drawing.Point(367, 396);
+            this.player1Cup2.Location = new System.Drawing.Point(341, 394);
             this.player1Cup2.Name = "player1Cup2";
             this.player1Cup2.Size = new System.Drawing.Size(158, 144);
             this.player1Cup2.TabIndex = 14;
@@ -221,7 +221,7 @@
             // 
             this.player1Cup3.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player1Cup3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Cup3.Location = new System.Drawing.Point(537, 396);
+            this.player1Cup3.Location = new System.Drawing.Point(511, 394);
             this.player1Cup3.Name = "player1Cup3";
             this.player1Cup3.Size = new System.Drawing.Size(158, 144);
             this.player1Cup3.TabIndex = 13;
@@ -232,7 +232,7 @@
             // 
             this.player1Cup4.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player1Cup4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Cup4.Location = new System.Drawing.Point(705, 396);
+            this.player1Cup4.Location = new System.Drawing.Point(679, 394);
             this.player1Cup4.Name = "player1Cup4";
             this.player1Cup4.Size = new System.Drawing.Size(158, 144);
             this.player1Cup4.TabIndex = 12;
@@ -243,7 +243,7 @@
             // 
             this.player1Cup5.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player1Cup5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Cup5.Location = new System.Drawing.Point(875, 396);
+            this.player1Cup5.Location = new System.Drawing.Point(849, 394);
             this.player1Cup5.Name = "player1Cup5";
             this.player1Cup5.Size = new System.Drawing.Size(158, 144);
             this.player1Cup5.TabIndex = 11;
@@ -254,7 +254,7 @@
             // 
             this.player1Cup6.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player1Cup6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Cup6.Location = new System.Drawing.Point(1043, 396);
+            this.player1Cup6.Location = new System.Drawing.Point(1017, 394);
             this.player1Cup6.Name = "player1Cup6";
             this.player1Cup6.Size = new System.Drawing.Size(158, 144);
             this.player1Cup6.TabIndex = 10;
@@ -265,7 +265,7 @@
             // 
             this.player2Mancala.BackgroundImage = global::game_gui.Properties.Resources.e0;
             this.player2Mancala.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2Mancala.Location = new System.Drawing.Point(38, 73);
+            this.player2Mancala.Location = new System.Drawing.Point(12, 71);
             this.player2Mancala.Name = "player2Mancala";
             this.player2Mancala.Size = new System.Drawing.Size(150, 467);
             this.player2Mancala.TabIndex = 9;
@@ -275,7 +275,7 @@
             // 
             this.player2Cup6.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player2Cup6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2Cup6.Location = new System.Drawing.Point(198, 73);
+            this.player2Cup6.Location = new System.Drawing.Point(172, 71);
             this.player2Cup6.Name = "player2Cup6";
             this.player2Cup6.Size = new System.Drawing.Size(157, 144);
             this.player2Cup6.TabIndex = 8;
@@ -286,7 +286,7 @@
             // 
             this.player2Cup5.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player2Cup5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2Cup5.Location = new System.Drawing.Point(367, 73);
+            this.player2Cup5.Location = new System.Drawing.Point(341, 71);
             this.player2Cup5.Name = "player2Cup5";
             this.player2Cup5.Size = new System.Drawing.Size(158, 144);
             this.player2Cup5.TabIndex = 7;
@@ -297,7 +297,7 @@
             // 
             this.player2Cup4.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player2Cup4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2Cup4.Location = new System.Drawing.Point(537, 73);
+            this.player2Cup4.Location = new System.Drawing.Point(511, 71);
             this.player2Cup4.Name = "player2Cup4";
             this.player2Cup4.Size = new System.Drawing.Size(158, 144);
             this.player2Cup4.TabIndex = 6;
@@ -308,7 +308,7 @@
             // 
             this.player2Cup3.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player2Cup3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2Cup3.Location = new System.Drawing.Point(705, 73);
+            this.player2Cup3.Location = new System.Drawing.Point(679, 71);
             this.player2Cup3.Name = "player2Cup3";
             this.player2Cup3.Size = new System.Drawing.Size(158, 144);
             this.player2Cup3.TabIndex = 5;
@@ -319,7 +319,7 @@
             // 
             this.player2Cup2.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player2Cup2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2Cup2.Location = new System.Drawing.Point(875, 73);
+            this.player2Cup2.Location = new System.Drawing.Point(849, 71);
             this.player2Cup2.Name = "player2Cup2";
             this.player2Cup2.Size = new System.Drawing.Size(158, 144);
             this.player2Cup2.TabIndex = 4;
@@ -330,7 +330,7 @@
             // 
             this.player1Mancala.BackgroundImage = global::game_gui.Properties.Resources.e0;
             this.player1Mancala.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1Mancala.Location = new System.Drawing.Point(1211, 73);
+            this.player1Mancala.Location = new System.Drawing.Point(1185, 71);
             this.player1Mancala.Name = "player1Mancala";
             this.player1Mancala.Size = new System.Drawing.Size(150, 467);
             this.player1Mancala.TabIndex = 3;
@@ -340,7 +340,7 @@
             // 
             this.player2Cup1.BackgroundImage = global::game_gui.Properties.Resources.p4;
             this.player2Cup1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2Cup1.Location = new System.Drawing.Point(1043, 73);
+            this.player2Cup1.Location = new System.Drawing.Point(1017, 71);
             this.player2Cup1.Name = "player2Cup1";
             this.player2Cup1.Size = new System.Drawing.Size(158, 144);
             this.player2Cup1.TabIndex = 2;
@@ -350,7 +350,7 @@
             // woodBoard
             // 
             this.woodBoard.BackgroundImage = global::game_gui.Properties.Resources.woodBackground;
-            this.woodBoard.Location = new System.Drawing.Point(26, 27);
+            this.woodBoard.Location = new System.Drawing.Point(0, 25);
             this.woodBoard.Name = "woodBoard";
             this.woodBoard.Size = new System.Drawing.Size(1351, 561);
             this.woodBoard.TabIndex = 1;
@@ -361,7 +361,7 @@
             this.player2Cup2Count.AutoSize = true;
             this.player2Cup2Count.BackColor = System.Drawing.Color.YellowGreen;
             this.player2Cup2Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Cup2Count.Location = new System.Drawing.Point(945, 37);
+            this.player2Cup2Count.Location = new System.Drawing.Point(919, 35);
             this.player2Cup2Count.Name = "player2Cup2Count";
             this.player2Cup2Count.Size = new System.Drawing.Size(20, 24);
             this.player2Cup2Count.TabIndex = 17;
@@ -372,7 +372,7 @@
             this.player2Cup3Count.AutoSize = true;
             this.player2Cup3Count.BackColor = System.Drawing.Color.YellowGreen;
             this.player2Cup3Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Cup3Count.Location = new System.Drawing.Point(776, 37);
+            this.player2Cup3Count.Location = new System.Drawing.Point(750, 35);
             this.player2Cup3Count.Name = "player2Cup3Count";
             this.player2Cup3Count.Size = new System.Drawing.Size(20, 24);
             this.player2Cup3Count.TabIndex = 18;
@@ -383,7 +383,7 @@
             this.player2Cup4Count.AutoSize = true;
             this.player2Cup4Count.BackColor = System.Drawing.Color.YellowGreen;
             this.player2Cup4Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Cup4Count.Location = new System.Drawing.Point(608, 37);
+            this.player2Cup4Count.Location = new System.Drawing.Point(582, 35);
             this.player2Cup4Count.Name = "player2Cup4Count";
             this.player2Cup4Count.Size = new System.Drawing.Size(20, 24);
             this.player2Cup4Count.TabIndex = 19;
@@ -394,7 +394,7 @@
             this.player2Cup5Count.AutoSize = true;
             this.player2Cup5Count.BackColor = System.Drawing.Color.YellowGreen;
             this.player2Cup5Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Cup5Count.Location = new System.Drawing.Point(435, 37);
+            this.player2Cup5Count.Location = new System.Drawing.Point(409, 35);
             this.player2Cup5Count.Name = "player2Cup5Count";
             this.player2Cup5Count.Size = new System.Drawing.Size(20, 24);
             this.player2Cup5Count.TabIndex = 20;
@@ -405,7 +405,7 @@
             this.player2Cup6Count.AutoSize = true;
             this.player2Cup6Count.BackColor = System.Drawing.Color.YellowGreen;
             this.player2Cup6Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Cup6Count.Location = new System.Drawing.Point(270, 37);
+            this.player2Cup6Count.Location = new System.Drawing.Point(244, 35);
             this.player2Cup6Count.Name = "player2Cup6Count";
             this.player2Cup6Count.Size = new System.Drawing.Size(20, 24);
             this.player2Cup6Count.TabIndex = 21;
@@ -416,7 +416,7 @@
             this.player2MancalaCount.AutoSize = true;
             this.player2MancalaCount.BackColor = System.Drawing.Color.YellowGreen;
             this.player2MancalaCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2MancalaCount.Location = new System.Drawing.Point(105, 37);
+            this.player2MancalaCount.Location = new System.Drawing.Point(79, 35);
             this.player2MancalaCount.Name = "player2MancalaCount";
             this.player2MancalaCount.Size = new System.Drawing.Size(20, 24);
             this.player2MancalaCount.TabIndex = 22;
@@ -427,7 +427,7 @@
             this.player1Cup1Count.AutoSize = true;
             this.player1Cup1Count.BackColor = System.Drawing.Color.MediumTurquoise;
             this.player1Cup1Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1Cup1Count.Location = new System.Drawing.Point(270, 552);
+            this.player1Cup1Count.Location = new System.Drawing.Point(244, 550);
             this.player1Cup1Count.Name = "player1Cup1Count";
             this.player1Cup1Count.Size = new System.Drawing.Size(20, 24);
             this.player1Cup1Count.TabIndex = 23;
@@ -438,7 +438,7 @@
             this.player1Cup2Count.AutoSize = true;
             this.player1Cup2Count.BackColor = System.Drawing.Color.MediumTurquoise;
             this.player1Cup2Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1Cup2Count.Location = new System.Drawing.Point(435, 552);
+            this.player1Cup2Count.Location = new System.Drawing.Point(409, 550);
             this.player1Cup2Count.Name = "player1Cup2Count";
             this.player1Cup2Count.Size = new System.Drawing.Size(20, 24);
             this.player1Cup2Count.TabIndex = 24;
@@ -449,7 +449,7 @@
             this.player1Cup3Count.AutoSize = true;
             this.player1Cup3Count.BackColor = System.Drawing.Color.MediumTurquoise;
             this.player1Cup3Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1Cup3Count.Location = new System.Drawing.Point(608, 552);
+            this.player1Cup3Count.Location = new System.Drawing.Point(582, 550);
             this.player1Cup3Count.Name = "player1Cup3Count";
             this.player1Cup3Count.Size = new System.Drawing.Size(20, 24);
             this.player1Cup3Count.TabIndex = 25;
@@ -460,7 +460,7 @@
             this.player1Cup4Count.AutoSize = true;
             this.player1Cup4Count.BackColor = System.Drawing.Color.MediumTurquoise;
             this.player1Cup4Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1Cup4Count.Location = new System.Drawing.Point(776, 552);
+            this.player1Cup4Count.Location = new System.Drawing.Point(750, 550);
             this.player1Cup4Count.Name = "player1Cup4Count";
             this.player1Cup4Count.Size = new System.Drawing.Size(20, 24);
             this.player1Cup4Count.TabIndex = 26;
@@ -471,7 +471,7 @@
             this.player1Cup5Count.AutoSize = true;
             this.player1Cup5Count.BackColor = System.Drawing.Color.MediumTurquoise;
             this.player1Cup5Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1Cup5Count.Location = new System.Drawing.Point(945, 552);
+            this.player1Cup5Count.Location = new System.Drawing.Point(919, 550);
             this.player1Cup5Count.Name = "player1Cup5Count";
             this.player1Cup5Count.Size = new System.Drawing.Size(20, 24);
             this.player1Cup5Count.TabIndex = 27;
@@ -482,7 +482,7 @@
             this.player1Cup6Count.AutoSize = true;
             this.player1Cup6Count.BackColor = System.Drawing.Color.MediumTurquoise;
             this.player1Cup6Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1Cup6Count.Location = new System.Drawing.Point(1112, 552);
+            this.player1Cup6Count.Location = new System.Drawing.Point(1086, 550);
             this.player1Cup6Count.Name = "player1Cup6Count";
             this.player1Cup6Count.Size = new System.Drawing.Size(20, 24);
             this.player1Cup6Count.TabIndex = 28;
@@ -493,7 +493,7 @@
             this.player1MancalaCount.AutoSize = true;
             this.player1MancalaCount.BackColor = System.Drawing.Color.MediumTurquoise;
             this.player1MancalaCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1MancalaCount.Location = new System.Drawing.Point(1275, 552);
+            this.player1MancalaCount.Location = new System.Drawing.Point(1249, 550);
             this.player1MancalaCount.Name = "player1MancalaCount";
             this.player1MancalaCount.Size = new System.Drawing.Size(20, 24);
             this.player1MancalaCount.TabIndex = 29;
@@ -501,11 +501,12 @@
             // 
             // playerOneGroupBox
             // 
+            this.playerOneGroupBox.AutoSize = true;
             this.playerOneGroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.playerOneGroupBox.Controls.Add(this.p1ComputerPathLabel);
             this.playerOneGroupBox.Controls.Add(this.p1ComputerButton);
             this.playerOneGroupBox.Controls.Add(this.p1HumanButton);
-            this.playerOneGroupBox.Location = new System.Drawing.Point(26, 604);
+            this.playerOneGroupBox.Location = new System.Drawing.Point(0, 602);
             this.playerOneGroupBox.Name = "playerOneGroupBox";
             this.playerOneGroupBox.Size = new System.Drawing.Size(341, 152);
             this.playerOneGroupBox.TabIndex = 30;
@@ -551,7 +552,7 @@
             this.player2GroupBox.Controls.Add(this.p2ComputerPathLabel);
             this.player2GroupBox.Controls.Add(this.p2ComputerButton);
             this.player2GroupBox.Controls.Add(this.p2HumanButton);
-            this.player2GroupBox.Location = new System.Drawing.Point(522, 604);
+            this.player2GroupBox.Location = new System.Drawing.Point(496, 602);
             this.player2GroupBox.Name = "player2GroupBox";
             this.player2GroupBox.Size = new System.Drawing.Size(341, 152);
             this.player2GroupBox.TabIndex = 31;
@@ -598,7 +599,7 @@
             this.gameControlGroupBox.Controls.Add(this.startGameButton);
             this.gameControlGroupBox.Controls.Add(this.turnIndicator);
             this.gameControlGroupBox.Controls.Add(this.turnIndicatorLabel);
-            this.gameControlGroupBox.Location = new System.Drawing.Point(1036, 604);
+            this.gameControlGroupBox.Location = new System.Drawing.Point(1010, 602);
             this.gameControlGroupBox.Name = "gameControlGroupBox";
             this.gameControlGroupBox.Size = new System.Drawing.Size(341, 152);
             this.gameControlGroupBox.TabIndex = 32;
@@ -652,9 +653,11 @@
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1404, 769);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1350, 755);
             this.Controls.Add(this.gameControlGroupBox);
             this.Controls.Add(this.player2GroupBox);
             this.Controls.Add(this.playerOneGroupBox);

@@ -33,6 +33,7 @@ namespace game_gui
         private string P2Path = "";
         private int Turn = 0;
         private int TimeoutInMilliseconds = 15000;
+        bool GameInProgress = false;
 
         // CTOR
         public Game()
@@ -393,6 +394,13 @@ namespace game_gui
         // General Game Control ----------------------------------------------
         private void StartGameButton_Click(object sender, EventArgs e)
         {
+            if (GameInProgress)
+            {
+                string message = "A game is already in progress. Reset the game if you would like to start a new one.";
+                string caption = "Game Already in Progress";
+                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Console.WriteLine("----------------------------- GAME STARTED! -----------------------------");
             if(P1Type.Equals("Computer") && P2Type.Equals("Computer"))
             {
@@ -401,14 +409,18 @@ namespace game_gui
                     SelectExeError();
                     return;
                 }
+                GameInProgress = true;
+                startGameButton.BackColor = Color.LightGreen;
                 Turn = 0;
                 bool anAiHasWon;
                 do
                 {
+                    Console.WriteLine("\tIt is now Player 1's turn");
                     anAiHasWon = AI1Turn();
                     // TODO: Delay here
                     if (!anAiHasWon)
                     {
+                        Console.WriteLine("\tIt is now Player 2's turn");
                         anAiHasWon = AI2Turn();
                     }
                     // TODO: Delay here
@@ -421,6 +433,8 @@ namespace game_gui
                     SelectExeError();
                     return;
                 }
+                GameInProgress = true;
+                startGameButton.BackColor = Color.LightGreen;
                 Console.WriteLine("\tIt is now Player 1's turn");
                 Turn = 0;
                 turnIndicator.BackColor = Color.MediumTurquoise;
@@ -459,10 +473,14 @@ namespace game_gui
                     SelectExeError();
                     return;
                 }
+                GameInProgress = true;
+                startGameButton.BackColor = Color.LightGreen;
                 Console.WriteLine("\tIt is now Player 1's turn");
             }
             else
             {
+                GameInProgress = true;
+                startGameButton.BackColor = Color.LightGreen;
                 Console.WriteLine("\tIt is now Player 1's turn");
                 Turn = 1;
             }
@@ -529,6 +547,8 @@ namespace game_gui
             UpdateGUI();
 
             Turn = 0;
+            GameInProgress = false;
+            startGameButton.BackColor = Color.White;
             turnIndicator.BackColor = Color.MediumTurquoise;
 
             p1HumanButton.BackColor = Color.LightGreen;
