@@ -29,12 +29,31 @@ namespace game_gui.POCSO
         {
             int piecesRemaining = GameBoard[player - 1, cup - 1];
             GameBoard[player - 1, cup - 1] = 0;
-            int lastPieceSideIndex = -1, lastPieceCupIndex = - 1;
+            int lastPieceSideIndex = -1, lastPieceCupIndex = -1;
+
             while (piecesRemaining > 0)
             {
-                int playerCupIndex = cup;
                 int playerSideIndex = player == 1 ? 0 : 1;
-                while(playerCupIndex < 6 && piecesRemaining > 0)
+                int opponentSideIndex = player == 1 ? 1 : 0;
+                int playerCupIndex;
+
+                /* NEW - Checks if the last side was the opponent's side and the last cup was the last cup on the opponent's side.
+                   This is for the weird case of 8 rocks in the last cup on a side*/
+                if (lastPieceSideIndex == opponentSideIndex && lastPieceCupIndex == 5)
+                {
+                    GameBoard[playerSideIndex, 0]++;
+                    playerCupIndex = 1;
+                    piecesRemaining--;
+                    lastPieceSideIndex = playerSideIndex;
+                    lastPieceCupIndex = 0;
+                }
+                else
+                {
+                    playerCupIndex = cup;
+                }
+                // END 
+
+                while (playerCupIndex < 6 && piecesRemaining > 0)
                 {
                     GameBoard[playerSideIndex, playerCupIndex]++;
                     lastPieceSideIndex = playerSideIndex;
@@ -42,7 +61,7 @@ namespace game_gui.POCSO
                     piecesRemaining--;
                     playerCupIndex++;
                 }
-                if(piecesRemaining > 0 && player == 1)
+                if (piecesRemaining > 0 && player == 1)
                 {
                     P1Mancala++;
                     piecesRemaining--;
@@ -57,7 +76,6 @@ namespace game_gui.POCSO
                     lastPieceCupIndex = 6;
                 }
                 int opponentCupIndex = 0;
-                int opponentSideIndex = player == 1 ? 1 : 0;
                 while (opponentCupIndex < 6 && piecesRemaining > 0)
                 {
                     GameBoard[opponentSideIndex, opponentCupIndex]++;
@@ -68,21 +86,29 @@ namespace game_gui.POCSO
                 }
             }
             // Special Cases -------------------------------------------------
-            if(lastPieceSideIndex == player - 1 && lastPieceCupIndex != 6 && GameBoard[lastPieceSideIndex, lastPieceCupIndex] == 1) // Capture opponent
+            if (lastPieceSideIndex == player - 1 && lastPieceCupIndex != 6 && GameBoard[lastPieceSideIndex, lastPieceCupIndex] == 1) // Capture opponent
             {
-                if(player == 1)
+                if (player == 1)
                 {
-                    int total = GameBoard[0, lastPieceCupIndex] + GameBoard[1, 5 - lastPieceCupIndex];
-                    GameBoard[0, lastPieceCupIndex] = 0;
-                    GameBoard[1, 5 - lastPieceCupIndex] = 0;
-                    P1Mancala += total;
+                    // NEW - checks to make sure opposite bucket isn't 0
+                    if (GameBoard[1, 5 - lastPieceCupIndex] != 0)
+                    {
+                        int total = GameBoard[0, lastPieceCupIndex] + GameBoard[1, 5 - lastPieceCupIndex];
+                        GameBoard[0, lastPieceCupIndex] = 0;
+                        GameBoard[1, 5 - lastPieceCupIndex] = 0;
+                        P1Mancala += total;
+                    }
                 }
                 else
                 {
-                    int total = GameBoard[1, lastPieceCupIndex] + GameBoard[0, 5 - lastPieceCupIndex];
-                    GameBoard[1, lastPieceCupIndex] = 0;
-                    GameBoard[0, 5 - lastPieceCupIndex] = 0;
-                    P2Mancala += total;
+                    // NEW - checks to make sure opposite bucket isn't 0
+                    if (GameBoard[0, 5 - lastPieceCupIndex] != 0)
+                    {
+                        int total = GameBoard[1, lastPieceCupIndex] + GameBoard[0, 5 - lastPieceCupIndex];
+                        GameBoard[1, lastPieceCupIndex] = 0;
+                        GameBoard[0, 5 - lastPieceCupIndex] = 0;
+                        P2Mancala += total;
+                    }
                 }
                 return false;
             }
@@ -98,8 +124,8 @@ namespace game_gui.POCSO
 
         public bool PlayerHasWon()
         {
-            int total1  = 0;
-            for(int i = 0; i < 6; i++)
+            int total1 = 0;
+            for (int i = 0; i < 6; i++)
             {
                 total1 += GameBoard[0, i];
             }
