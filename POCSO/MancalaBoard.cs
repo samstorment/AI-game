@@ -17,7 +17,7 @@ namespace game_gui.POCSO
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    GameBoard[i, j] = 8;
+                    GameBoard[i, j] = 4;
                 }
             }
             P1Mancala = 0;
