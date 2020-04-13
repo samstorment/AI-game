@@ -17,7 +17,7 @@ namespace game_gui.POCSO
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    GameBoard[i, j] = 4;
+                    GameBoard[i, j] = 8;
                 }
             }
             P1Mancala = 0;
@@ -30,9 +30,11 @@ namespace game_gui.POCSO
             int piecesRemaining = GameBoard[player - 1, cup - 1];
             GameBoard[player - 1, cup - 1] = 0;
             int lastPieceSideIndex = -1, lastPieceCupIndex = - 1;
+            bool loopAround = false; // Have we gone around the board?
             while (piecesRemaining > 0)
             {
-                int playerCupIndex = cup;
+                int playerCupIndex = loopAround ? 0 : cup;
+                loopAround = true;
                 int playerSideIndex = player == 1 ? 0 : 1;
                 while(playerCupIndex < 6 && piecesRemaining > 0)
                 {

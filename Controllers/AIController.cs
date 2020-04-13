@@ -18,7 +18,6 @@ namespace game_gui.Controllers
             info.CreateNoWindow = true;
             info.FileName = exePath;
             Process p = Process.Start(info);
-            p.WaitForInputIdle();
             p.WaitForExit(timeLimit);
             if (!p.HasExited)
             {
