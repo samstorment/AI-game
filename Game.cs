@@ -118,19 +118,19 @@ namespace game_gui
         private void Player1ButtonSelect(int playerIndex, int cupIndex)
         {
             bool canGoAgain = UpdateBoard(playerIndex, cupIndex);
-            bool didWin = GameBoard.PlayerHasWon();
-            if (!canGoAgain && !didWin && P2Type.Equals("Human"))
+            bool P1SideEmpty = GameBoard.PlayerHasWon();
+            if (!canGoAgain && !P1SideEmpty && P2Type.Equals("Human"))
             {
                 Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
                 Turn = 2;
                 turnIndicator.BackColor = Color.YellowGreen; 
             }
-            else if (!canGoAgain && !didWin && P2Type.Equals("Computer"))
+            else if (!canGoAgain && !P1SideEmpty && P2Type.Equals("Computer"))
             {
                 Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
                 Turn = 0;
                 turnIndicator.BackColor = Color.YellowGreen;
-                bool compHasWon, compCanGoAgain;
+                bool compSideEmpty, compCanGoAgain;
                 do
                 {
                     string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
@@ -148,20 +148,16 @@ namespace game_gui
                         Environment.Exit(1);
                     }
                     compCanGoAgain = UpdateBoard(playerNum, cupNum);
-                    compHasWon = GameBoard.PlayerHasWon();
+                    compSideEmpty = GameBoard.PlayerHasWon();
                     if (compCanGoAgain)
                     {
                         Console.WriteLine("\tPlayer gets another turn!");
                     }
-                } while (!compHasWon && compCanGoAgain);
+                } while (!compSideEmpty && compCanGoAgain);
 
-                if (compHasWon)
+                if (compSideEmpty)
                 {
-                    Console.WriteLine("Player 2 has won!");
-                    Turn = 0;
-                    string message = "Player 2 has won!";
-                    string caption = "WINNER";
-                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GameOver();
                 }
                 else
                 {
@@ -170,16 +166,12 @@ namespace game_gui
                     turnIndicator.BackColor = Color.MediumTurquoise;
                 }
             }
-            else if (didWin)
+            else if (P1SideEmpty)
             {
-                Console.WriteLine("Player 1 has won!");
-                Turn = 0;
-                string message = "Player 1 has won!";
-                string caption = "WINNER";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GameOver();
             }
-
-            if (canGoAgain)
+            // NEW - only give the go again notification if the player's side isn't empty
+            if (canGoAgain && !P1SideEmpty)
             {
                 Console.WriteLine("\tPlayer gets another turn!");
                 string message = "You get another turn!";
@@ -264,19 +256,19 @@ namespace game_gui
         private void Player2ButtonSelect(int playerIndex, int cupIndex)
         {
             bool canGoAgain = UpdateBoard(playerIndex, cupIndex);
-            bool didWin = GameBoard.PlayerHasWon();
-            if (!canGoAgain && !didWin && P1Type.Equals("Human"))
+            bool P2SideEmpty = GameBoard.PlayerHasWon();
+            if (!canGoAgain && !P2SideEmpty && P1Type.Equals("Human"))
             {
                 Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
                 Turn = 1; 
                 turnIndicator.BackColor = Color.MediumTurquoise;
             }
-            else if (!canGoAgain && !didWin && P1Type.Equals("Computer"))
+            else if (!canGoAgain && !P2SideEmpty && P1Type.Equals("Computer"))
             {
                 Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
                 Turn = 0;
                 turnIndicator.BackColor = Color.MediumTurquoise;
-                bool compHasWon, compCanGoAgain;
+                bool compSideEmpty, compCanGoAgain;
                 do
                 {
                     string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
@@ -294,20 +286,16 @@ namespace game_gui
                         Environment.Exit(1);
                     }
                     compCanGoAgain = UpdateBoard(playerNum, cupNum);
-                    compHasWon = GameBoard.PlayerHasWon();
+                    compSideEmpty = GameBoard.PlayerHasWon();
                     if (compCanGoAgain)
                     {
                         Console.WriteLine("\tPlayer gets another turn!");
                     }
-                } while (!compHasWon && compCanGoAgain);
+                } while (!compSideEmpty && compCanGoAgain);
 
-                if (compHasWon)
+                if (compSideEmpty)
                 {
-                    Console.WriteLine("Player 1 has won!");
-                    Turn = 0;
-                    string message = "Player 1 has won!";
-                    string caption = "WINNER";
-                    MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GameOver();
                 }
                 else
                 {
@@ -316,16 +304,12 @@ namespace game_gui
                     turnIndicator.BackColor = Color.YellowGreen;
                 }
             }
-            else if (didWin)
+            else if (P2SideEmpty)
             {
-                Console.WriteLine("Player 2 has won!");
-                Turn = 0;
-                string message = "Player 2 has won!";
-                string caption = "WINNER";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GameOver();
             }
-
-            if (canGoAgain)
+            // NEW - only give the go again notification if the player's side isn't empty
+            if (canGoAgain && !P2SideEmpty)
             {
                 Console.WriteLine("\tPlayer gets another turn!");
                 string message = "You get another turn!";
@@ -476,6 +460,7 @@ namespace game_gui
                 GameInProgress = true;
                 startGameButton.BackColor = Color.LightGreen;
                 Console.WriteLine("\tIt is now Player 1's turn");
+                Turn = 1;   // NEw
             }
             else
             {
@@ -683,7 +668,7 @@ namespace game_gui
         {
             Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
             turnIndicator.BackColor = Color.MediumTurquoise;
-            bool compHasWon, compCanGoAgain;
+            bool compSideEmpty, compCanGoAgain;
             do
             {
                 string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
@@ -701,19 +686,16 @@ namespace game_gui
                     Environment.Exit(1);
                 }
                 compCanGoAgain = UpdateBoard(playerNum, cupNum);
-                compHasWon = GameBoard.PlayerHasWon();
+                compSideEmpty = GameBoard.PlayerHasWon();
                 if (compCanGoAgain)
                 {
                     Console.WriteLine("\tPlayer gets another turn!");
                 }
-            } while (!compHasWon && compCanGoAgain);
+            } while (!compSideEmpty && compCanGoAgain);
 
-            if (compHasWon)
+            if (compSideEmpty)
             {
-                Console.WriteLine("Player 1 has won!");
-                string message = "Player 1 has won!";
-                string caption = "WINNER";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GameOver();
                 return true;
             }
             else
@@ -728,7 +710,7 @@ namespace game_gui
         {
             Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
             turnIndicator.BackColor = Color.YellowGreen;
-            bool compHasWon, compCanGoAgain;
+            bool compSideEmpty, compCanGoAgain;
             do
             {
                 string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
@@ -746,19 +728,16 @@ namespace game_gui
                     Environment.Exit(1);
                 }
                 compCanGoAgain = UpdateBoard(playerNum, cupNum);
-                compHasWon = GameBoard.PlayerHasWon();
+                compSideEmpty = GameBoard.PlayerHasWon();
                 if (compCanGoAgain)
                 {
                     Console.WriteLine("\tPlayer gets another turn!");
                 }
-            } while (!compHasWon && compCanGoAgain);
+            } while (!compSideEmpty && compCanGoAgain);
 
-            if (compHasWon)
+            if (compSideEmpty)
             {
-                Console.WriteLine("Player 2 has won!");
-                string message = "Player 2 has won!";
-                string caption = "WINNER";
-                MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GameOver();
                 return true;
             }
             else
@@ -767,6 +746,19 @@ namespace game_gui
                 turnIndicator.BackColor = Color.MediumTurquoise;
                 return false;
             }
+        }
+
+        // NEW - Checks to see who had the most rocks in their Mancala and prints the winner
+        private void GameOver()
+        {
+            string message;
+            if (GameBoard.P1Mancala > GameBoard.P2Mancala) { message = "Player 1 has won!"; }
+            else if (GameBoard.P2Mancala > GameBoard.P1Mancala) { message = "Player 2 has won!"; }
+            else { message = "It's a tie!"; }
+            Console.WriteLine(message);
+            string caption = "WINNER";
+            MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Turn = 0;
         }
     }
 }

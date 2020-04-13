@@ -18,7 +18,7 @@ namespace game_gui.Controllers
             info.CreateNoWindow = true;
             info.FileName = exePath;
             Process p = Process.Start(info);
-            p.WaitForInputIdle();
+            // p.WaitForInputIdle();    // NEW - I commented this out because it threw an error
             p.WaitForExit(timeLimit);
             if (!p.HasExited)
             {
