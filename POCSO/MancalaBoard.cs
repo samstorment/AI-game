@@ -68,7 +68,11 @@ namespace game_gui.POCSO
                 }
             }
             // Special Cases -------------------------------------------------
-            if(lastPieceSideIndex == player - 1 && lastPieceCupIndex != 6 && GameBoard[lastPieceSideIndex, lastPieceCupIndex] == 1) // Capture opponent
+            int oppositeSide = player - 1 == 0 ? 1 : 0;
+            if(lastPieceSideIndex == player - 1 
+                && lastPieceCupIndex != 6 
+                && GameBoard[lastPieceSideIndex, lastPieceCupIndex] == 1 
+                && GameBoard[oppositeSide, 5 - lastPieceCupIndex] > 0) // Capture opponent
             {
                 if(player == 1)
                 {

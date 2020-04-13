@@ -476,6 +476,7 @@ namespace game_gui
                 GameInProgress = true;
                 startGameButton.BackColor = Color.LightGreen;
                 Console.WriteLine("\tIt is now Player 1's turn");
+                Turn = 1;
             }
             else
             {
