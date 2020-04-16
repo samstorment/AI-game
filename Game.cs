@@ -15,17 +15,6 @@ namespace game_gui
 {
     public partial class Game : Form
     {
-        // This is where our event handlers will be for our form. Pass off game control functoinality to controllers
-
-        // C# Conventions: https://github.com/ktaranov/naming-convention/blob/master/C%23%20Coding%20Standards%20and%20Naming%20Conventions.md
-        // Class Names: PascalCase
-        // Constructors: PascalCase
-        // Method Names: PascalCase
-        // Constants: PascalCase
-        // Class Variables: PacalCase
-        // Local Variabls: camelCase
-        // Method Params: camelCase
-
         private MancalaBoard GameBoard;
         private string P1Type = "";
         private string P2Type = "";
@@ -133,6 +122,7 @@ namespace game_gui
                 bool compSideEmpty = false, compCanGoAgain;
                 do
                 {
+                    Task.Delay(1500);
                     string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
                     if (move.Equals("timeout"))
                     {
@@ -276,6 +266,7 @@ namespace game_gui
                 bool compSideEmpty = false, compCanGoAgain;
                 do
                 {
+                    Task.Delay(1500);
                     string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
                     if (move.Equals("timeout"))
                     {
@@ -411,13 +402,13 @@ namespace game_gui
                 {
                     Console.WriteLine("\tIt is now Player 1's turn");
                     anAiHasWon = AI1Turn();
-                    // TODO: Delay here
+                    Task.Delay(400);
                     if (!anAiHasWon)
                     {
                         Console.WriteLine("\tIt is now Player 2's turn");
                         anAiHasWon = AI2Turn();
                     }
-                    // TODO: Delay here
+                    Task.Delay(400);
                 } while (!anAiHasWon);
             }
             else if (P1Type.Equals("Computer") && P2Type.Equals("Human"))
@@ -435,6 +426,7 @@ namespace game_gui
                 bool compCanGoAgain;
                 do
                 {
+                    Task.Delay(1500);
                     string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
                     if (move.Equals("timeout"))
                     {
@@ -475,7 +467,7 @@ namespace game_gui
                 GameInProgress = true;
                 startGameButton.BackColor = Color.LightGreen;
                 Console.WriteLine("\tIt is now Player 1's turn");
-                Turn = 1;   // NEw
+                Turn = 1;
             }
             else
             {
@@ -686,6 +678,7 @@ namespace game_gui
             bool compSideEmpty = false, compCanGoAgain;
             do
             {
+                Task.Delay(150);
                 string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
                 if(move.Equals("timeout"))
                 {
@@ -733,6 +726,7 @@ namespace game_gui
             bool compSideEmpty = false, compCanGoAgain;
             do
             {
+                Task.Delay(150);
                 string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
                 if (move.Equals("timeout"))
                 {
