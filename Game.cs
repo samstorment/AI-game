@@ -130,10 +130,15 @@ namespace game_gui
                 Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
                 Turn = 0;
                 turnIndicator.BackColor = Color.YellowGreen;
-                bool compSideEmpty, compCanGoAgain;
+                bool compSideEmpty = false, compCanGoAgain;
                 do
                 {
                     string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
+                    if (move.Equals("timeout"))
+                    {
+                        Console.WriteLine("\tAI has exceeded time limit. Skipping turn...");
+                        break;
+                    }
                     var lines = move.Split(',');
                     int playerNum = 0;
                     int cupNum = 0;
@@ -268,10 +273,15 @@ namespace game_gui
                 Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
                 Turn = 0;
                 turnIndicator.BackColor = Color.MediumTurquoise;
-                bool compSideEmpty, compCanGoAgain;
+                bool compSideEmpty = false, compCanGoAgain;
                 do
                 {
                     string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
+                    if (move.Equals("timeout"))
+                    {
+                        Console.WriteLine("\tAI has exceeded time limit. Skipping turn...");
+                        break;
+                    }
                     var lines = move.Split(',');
                     int playerNum = 0;
                     int cupNum = 0;
@@ -426,6 +436,11 @@ namespace game_gui
                 do
                 {
                     string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
+                    if (move.Equals("timeout"))
+                    {
+                        Console.WriteLine("\tAI has exceeded time limit. Skipping turn...");
+                        break;
+                    }
                     var lines = move.Split(',');
                     int playerNum = 0;
                     int cupNum = 0;
@@ -668,10 +683,15 @@ namespace game_gui
         {
             Console.WriteLine("\tChanging Turns! It is now Player 1's turn");
             turnIndicator.BackColor = Color.MediumTurquoise;
-            bool compSideEmpty, compCanGoAgain;
+            bool compSideEmpty = false, compCanGoAgain;
             do
             {
                 string move = AIController.GetMove(GameBoard, 1, P1Path, TimeoutInMilliseconds);
+                if(move.Equals("timeout"))
+                {
+                    Console.WriteLine("\tAI has exceeded time limit. Skipping turn...");
+                    break;
+                }
                 var lines = move.Split(',');
                 int playerNum = 0;
                 int cupNum = 0;
@@ -710,10 +730,15 @@ namespace game_gui
         {
             Console.WriteLine("\tChanging Turns! It is now Player 2's turn");
             turnIndicator.BackColor = Color.YellowGreen;
-            bool compSideEmpty, compCanGoAgain;
+            bool compSideEmpty = false, compCanGoAgain;
             do
             {
                 string move = AIController.GetMove(GameBoard, 2, P2Path, TimeoutInMilliseconds);
+                if (move.Equals("timeout"))
+                {
+                    Console.WriteLine("\tAI has exceeded time limit. Skipping turn...");
+                    break;
+                }
                 var lines = move.Split(',');
                 int playerNum = 0;
                 int cupNum = 0;
