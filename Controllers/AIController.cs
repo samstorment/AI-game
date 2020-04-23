@@ -17,6 +17,7 @@ namespace game_gui.Controllers
             ProcessStartInfo info = new ProcessStartInfo();
             info.CreateNoWindow = true;
             info.FileName = exePath;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
             Process p = Process.Start(info);
             p.WaitForExit(timeLimit);
             if (!p.HasExited)

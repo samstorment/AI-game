@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileDropDown = new System.Windows.Forms.ToolStripMenuItem();
-            this.openLogFile = new System.Windows.Forms.ToolStripMenuItem();
             this.timeLimitSelector = new System.Windows.Forms.ToolStripMenuItem();
             this.timeLimitSelect5 = new System.Windows.Forms.ToolStripMenuItem();
             this.timeLimitSelect10 = new System.Windows.Forms.ToolStripMenuItem();
             this.timeLimitSelect15 = new System.Windows.Forms.ToolStripMenuItem();
             this.timeLimitSelect20 = new System.Windows.Forms.ToolStripMenuItem();
             this.timeLimitSelectNone = new System.Windows.Forms.ToolStripMenuItem();
-            this.directionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.player2Cup1Count = new System.Windows.Forms.Label();
             this.player1Cup1 = new System.Windows.Forms.PictureBox();
             this.player1Cup2 = new System.Windows.Forms.PictureBox();
@@ -106,28 +103,12 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileDropDown,
-            this.timeLimitSelector,
-            this.directionsToolStripMenuItem});
+            this.timeLimitSelector});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileDropDown
-            // 
-            this.fileDropDown.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openLogFile});
-            this.fileDropDown.Name = "fileDropDown";
-            this.fileDropDown.Size = new System.Drawing.Size(37, 20);
-            this.fileDropDown.Text = "File";
-            // 
-            // openLogFile
-            // 
-            this.openLogFile.Name = "openLogFile";
-            this.openLogFile.Size = new System.Drawing.Size(147, 22);
-            this.openLogFile.Text = "Open Log File";
             // 
             // timeLimitSelector
             // 
@@ -144,14 +125,14 @@
             // timeLimitSelect5
             // 
             this.timeLimitSelect5.Name = "timeLimitSelect5";
-            this.timeLimitSelect5.Size = new System.Drawing.Size(132, 22);
+            this.timeLimitSelect5.Size = new System.Drawing.Size(180, 22);
             this.timeLimitSelect5.Text = "5 seconds";
             this.timeLimitSelect5.Click += new System.EventHandler(this.TimeLimitSelect5_Click);
             // 
             // timeLimitSelect10
             // 
             this.timeLimitSelect10.Name = "timeLimitSelect10";
-            this.timeLimitSelect10.Size = new System.Drawing.Size(132, 22);
+            this.timeLimitSelect10.Size = new System.Drawing.Size(180, 22);
             this.timeLimitSelect10.Text = "10 seconds";
             this.timeLimitSelect10.Click += new System.EventHandler(this.TimeLimitSelect10_Click);
             // 
@@ -160,29 +141,23 @@
             this.timeLimitSelect15.Checked = true;
             this.timeLimitSelect15.CheckState = System.Windows.Forms.CheckState.Checked;
             this.timeLimitSelect15.Name = "timeLimitSelect15";
-            this.timeLimitSelect15.Size = new System.Drawing.Size(132, 22);
+            this.timeLimitSelect15.Size = new System.Drawing.Size(180, 22);
             this.timeLimitSelect15.Text = "15 seconds";
             this.timeLimitSelect15.Click += new System.EventHandler(this.TimeLimitSelect15_Click);
             // 
             // timeLimitSelect20
             // 
             this.timeLimitSelect20.Name = "timeLimitSelect20";
-            this.timeLimitSelect20.Size = new System.Drawing.Size(132, 22);
+            this.timeLimitSelect20.Size = new System.Drawing.Size(180, 22);
             this.timeLimitSelect20.Text = "20 seconds";
             this.timeLimitSelect20.Click += new System.EventHandler(this.TimeLimitSelect20_Click);
             // 
             // timeLimitSelectNone
             // 
             this.timeLimitSelectNone.Name = "timeLimitSelectNone";
-            this.timeLimitSelectNone.Size = new System.Drawing.Size(132, 22);
+            this.timeLimitSelectNone.Size = new System.Drawing.Size(180, 22);
             this.timeLimitSelectNone.Text = "No limit";
             this.timeLimitSelectNone.Click += new System.EventHandler(this.TimeLimitSelectNone_Click);
-            // 
-            // directionsToolStripMenuItem
-            // 
-            this.directionsToolStripMenuItem.Name = "directionsToolStripMenuItem";
-            this.directionsToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.directionsToolStripMenuItem.Text = "Directions";
             // 
             // player2Cup1Count
             // 
@@ -728,8 +703,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileDropDown;
-        private System.Windows.Forms.ToolStripMenuItem openLogFile;
         private System.Windows.Forms.ToolStripMenuItem timeLimitSelector;
         private System.Windows.Forms.ToolStripMenuItem timeLimitSelect5;
         private System.Windows.Forms.ToolStripMenuItem timeLimitSelect10;
@@ -765,7 +738,6 @@
         private System.Windows.Forms.Label player1Cup5Count;
         private System.Windows.Forms.Label player1Cup6Count;
         private System.Windows.Forms.Label player1MancalaCount;
-        private System.Windows.Forms.ToolStripMenuItem directionsToolStripMenuItem;
         private System.Windows.Forms.GroupBox playerOneGroupBox;
         private System.Windows.Forms.GroupBox player2GroupBox;
         private System.Windows.Forms.GroupBox gameControlGroupBox;
